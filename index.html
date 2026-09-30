@@ -1,0 +1,340 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl"><head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>صقر السماء — نظام منخفض التكلفة بأربع طبقات للتمييز بين الطائرات المسيّرة والطيور</title>
+<meta name="description" content="نظام منخفض التكلفة بأربع طبقات للتمييز بين الطائرات المسيّرة والطيور">
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Kufi+Arabic:wght@400;700&display=swap" rel="stylesheet">
+<style>:root{--ink:#113833;--cream:#F4F4E8;--coral:#C75B4E;--teal:#2E8B6B;--bg:#FBFAF4;--card:#fff;--line:#E2E0D2;--muted:#5C6B66;--soft:#F1F0E6}
+@media (prefers-color-scheme: dark){:root:not([data-theme="light"]){--bg:#0E211D;--card:#16302B;--ink:#EAF0EA;--line:#254740;--muted:#A9BDB6;--soft:#122924}}
+:root[data-theme="dark"]{--bg:#0E211D;--card:#16302B;--ink:#EAF0EA;--line:#254740;--muted:#A9BDB6;--soft:#122924}
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth;scroll-padding-top:calc(124px + env(safe-area-inset-top,0px))}
+:root{box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}
+body{background:var(--bg);color:var(--ink);font-family:"Noto Kufi Arabic","Segoe UI",system-ui,-apple-system,"Helvetica Neue",Arial,sans-serif;line-height:1.75;font-size:17px}
+img,svg{max-width:100%;height:auto}
+.wrap{max-width:1020px;margin:0 auto;padding:0 20px}
+header{position:sticky;top:env(safe-area-inset-top,0px);z-index:30;background:#C75B4E;color:#fff}
+.bar{display:flex;align-items:center;gap:14px;padding:10px 20px;max-width:1020px;margin:0 auto}
+.bar .em svg{width:44px;height:44px;display:block}
+.bar b{font-size:20px}.bar .sp{flex:1}
+.lang{border:1.5px solid rgba(255,255,255,.8);color:#fff;border-radius:999px;padding:5px 14px;font-size:14px;text-decoration:none;white-space:nowrap}
+nav{background:rgba(0,0,0,.16);overflow-x:auto}
+nav ul{display:flex;gap:2px;list-style:none;max-width:1020px;margin:0 auto;padding:0 14px;white-space:nowrap}
+nav a{display:block;color:#fff;text-decoration:none;padding:9px 11px;font-size:14px;opacity:.9}
+nav a:hover{opacity:1;text-decoration:underline}
+.hero{background:linear-gradient(180deg,#C75B4E 0,#A94C41 100%);color:#fff;text-align:center;padding:48px 20px 56px}
+.hero .em svg{width:100px;height:100px;margin:0 auto}
+.hero h1{font-size:clamp(36px,8vw,60px);line-height:1.15;margin:12px 0 6px}
+.hero p{font-size:clamp(16px,3.4vw,21px);max-width:640px;margin:0 auto;opacity:.95}
+.chip{display:inline-block;margin-top:16px;background:rgba(255,255,255,.16);border:1px solid rgba(255,255,255,.35);border-radius:999px;padding:7px 18px;font-size:14px}
+section{padding:52px 0;border-bottom:1px solid var(--line)}
+h2{font-size:clamp(25px,5vw,34px);margin-bottom:8px;line-height:1.3}
+h2:before{content:"";display:inline-block;width:10px;height:10px;background:#C75B4E;border-radius:50%;margin-inline-end:12px;vertical-align:middle}
+h3{font-size:21px;margin:26px 0 8px}
+.kicker{color:#C75B4E;font-size:14px;font-weight:bold;letter-spacing:1px;margin-bottom:4px}
+p{margin-bottom:14px;color:var(--muted)}p.lead{color:var(--ink);font-size:18px}
+figure{margin:22px 0;background:var(--card);border:1px solid var(--line);border-radius:18px;padding:16px;overflow-x:auto}
+figure>div.fg{display:flex;justify-content:center;min-width:min-content}
+figcaption{margin-top:10px;font-size:14px;color:var(--muted);text-align:center}
+.card{background:var(--card);border:1px solid var(--line);border-radius:18px;padding:22px;margin-bottom:16px}
+.tool{background:var(--card);border:2px solid #C75B4E;border-radius:20px;padding:22px;margin:24px 0}
+.tool>h4{font-size:19px;margin-bottom:4px}
+.tool .hint{font-size:14px;color:var(--muted);margin-bottom:16px}
+.btns{display:flex;flex-wrap:wrap;gap:10px;margin-bottom:16px}
+button.opt{font:inherit;font-size:15px;cursor:pointer;background:var(--soft);color:var(--ink);border:2px solid var(--line);border-radius:999px;padding:8px 18px}
+button.opt[aria-pressed="true"]{background:#C75B4E;border-color:#C75B4E;color:#fff}
+.slider{margin-bottom:16px}
+.slider label{display:flex;justify-content:space-between;font-size:15px;margin-bottom:6px;gap:12px}
+.slider label b{color:#C75B4E}
+input[type=range]{width:100%;accent-color:#C75B4E}
+.readout{background:#113833;color:#F4F4E8;border-radius:14px;padding:16px;text-align:center;font-size:18px;line-height:1.5}
+.readout b{font-size:30px;display:block;color:#F0C9A8;direction:ltr}
+.verdict{border-radius:14px;padding:16px;text-align:center;font-size:19px;font-weight:bold;color:#fff}
+.v-drone{background:#C75B4E}.v-bird{background:#2E8B6B}.v-unsure{background:#8A7B4F}
+.vex{font-size:15px;font-weight:normal;margin-top:6px;display:block;opacity:.95}
+.layer{background:var(--card);border:1px solid var(--line);border-radius:18px;padding:22px;margin-bottom:16px;display:flex;gap:18px;align-items:flex-start}
+.num{width:46px;height:46px;flex:none;border-radius:50%;background:#C75B4E;color:#fff;display:flex;align-items:center;justify-content:center;font-size:20px;font-weight:bold}
+.layer h3{font-size:21px;margin:0 0 2px}
+.tagl{font-size:14px;color:var(--muted);margin-bottom:10px}
+.rng{display:inline-block;background:#2E8B6B;color:#fff;border-radius:999px;padding:4px 14px;font-size:14px;margin-top:8px}
+.lim{font-size:14.5px;background:var(--soft);border-inline-start:4px solid #C75B4E;border-radius:8px;padding:10px 14px;margin-top:12px;color:var(--muted)}
+.dec{background:#113833;color:#F4F4E8;border-radius:18px;padding:20px;text-align:center;font-size:18px;font-weight:bold;margin-top:18px}
+.tw{overflow-x:auto;margin:20px 0}
+table{border-collapse:collapse;width:100%;min-width:560px;background:var(--card);font-size:15px}
+th,td{padding:10px 14px;border-bottom:1px solid var(--line);text-align:start;vertical-align:top}
+th{background:#113833;color:#F4F4E8;font-size:14.5px}
+tr.me td{background:rgba(199,91,78,.1);font-weight:bold}
+.res{background:var(--card);border:1px solid var(--line);border-inline-start:6px solid #C75B4E;border-radius:14px;padding:18px 22px;margin-bottom:14px}
+.res b{display:block;font-size:30px;color:#C75B4E}
+.res strong{display:block;font-size:17px;margin-bottom:2px}.res span{font-size:14.5px;color:var(--muted)}
+.note{font-size:14.5px;color:var(--muted);font-style:italic}
+ul.steps,ul.plain{list-style:none}
+ul.steps li,ul.plain li{position:relative;padding-inline-start:28px;margin-bottom:11px;color:var(--muted)}
+ul.steps li:before{content:"";position:absolute;inset-inline-start:0;top:.65em;width:10px;height:10px;border-radius:50%;background:#2E8B6B}
+ul.plain li:before{content:"";position:absolute;inset-inline-start:0;top:.65em;width:10px;height:10px;border-radius:50%;background:#C75B4E}
+.log{border-inline-start:3px solid var(--line);padding-inline-start:22px;margin-top:20px}
+.log .e{position:relative;margin-bottom:24px}
+.log .e:before{content:"";position:absolute;inset-inline-start:-29px;top:8px;width:13px;height:13px;border-radius:50%;background:#C75B4E;border:3px solid var(--bg)}
+.log .d{font-size:14px;color:#C75B4E;font-weight:bold}
+.log h4{font-size:18px;margin:2px 0 4px}
+.log p{margin:0;font-size:15.5px}
+.log .e.todo:before{background:var(--line)}
+.log .e.todo h4{color:var(--muted)}
+.formula{background:#113833;color:#F4F4E8;border-radius:14px;padding:18px;text-align:center;font-size:20px;margin:18px 0;direction:ltr;overflow-x:auto}
+.flegend{font-size:14.5px;color:var(--muted);text-align:center;margin:-8px 0 18px}
+.flegend bdi{color:#C75B4E;font-weight:bold}
+code{background:var(--soft);border-radius:6px;padding:2px 7px;font-size:14.5px;direction:ltr;display:inline-block}
+pre{background:#113833;color:#F4F4E8;border-radius:14px;padding:18px;overflow-x:auto;direction:ltr;text-align:left;font-size:14px;line-height:1.6;margin:16px 0}
+ol.refs{padding-inline-start:26px;font-size:15px;color:var(--muted)}ol.refs li{margin-bottom:10px}
+footer{background:#113833;color:#F4F4E8;text-align:center;padding:28px 20px;font-size:14.5px}
+@media(max-width:520px){.layer{flex-direction:column;gap:12px}}</style></head><body>
+<svg width="0" height="0" style="position:absolute" aria-hidden="true"><defs><symbol id="drone" viewBox="-90 -42 180 84">
+ <g fill="#8a948f"><ellipse cx="-40" cy="-20" rx="24" ry="5"/><ellipse cx="40" cy="-20" rx="24" ry="5"/></g>
+ <g stroke="#6d7772" stroke-width="5" stroke-linecap="round"><path d="M-12 -4 L-40 -16 M12 -4 L40 -16"/></g>
+ <g stroke="#113833" stroke-width="6" stroke-linecap="round"><path d="M-14 2 L-56 -6 M14 2 L56 -6 M-56 -6 V-12 M56 -6 V-12"/></g>
+ <g fill="#C75B4E"><ellipse cx="-56" cy="-14" rx="28" ry="5.5"/><ellipse cx="56" cy="-14" rx="28" ry="5.5"/></g>
+ <rect x="-22" y="-8" width="44" height="20" rx="8" fill="#113833"/>
+ <circle cx="0" cy="18" r="7" fill="#113833"/><circle cx="0" cy="18" r="3" fill="#9CC7D6"/>
+ <g stroke="#113833" stroke-width="4" stroke-linecap="round" fill="none"><path d="M-14 12 L-22 28 H-30 M14 12 L22 28 H30"/></g></symbol><symbol id="droneW" viewBox="-90 -42 180 84">
+ <g fill="#9aa6a1"><ellipse cx="-40" cy="-20" rx="24" ry="5"/><ellipse cx="40" cy="-20" rx="24" ry="5"/></g>
+ <g stroke="#c9d1cd" stroke-width="5" stroke-linecap="round"><path d="M-12 -4 L-40 -16 M12 -4 L40 -16"/></g>
+ <g stroke="#F4F4E8" stroke-width="6" stroke-linecap="round"><path d="M-14 2 L-56 -6 M14 2 L56 -6 M-56 -6 V-12 M56 -6 V-12"/></g>
+ <g fill="#C75B4E"><ellipse cx="-56" cy="-14" rx="28" ry="5.5"/><ellipse cx="56" cy="-14" rx="28" ry="5.5"/></g>
+ <rect x="-22" y="-8" width="44" height="20" rx="8" fill="#F4F4E8"/>
+ <circle cx="0" cy="18" r="7" fill="#F4F4E8"/><circle cx="0" cy="18" r="3" fill="#9CC7D6"/>
+ <g stroke="#F4F4E8" stroke-width="4" stroke-linecap="round" fill="none"><path d="M-14 12 L-22 28 H-30 M14 12 L22 28 H30"/></g></symbol><symbol id="bird" viewBox="-64 -38 128 56"><path d="M-62 -6 C-44 -30 -20 -34 -4 -8 C0 -14 6 -16 12 -14 C18 -36 44 -34 62 -10 C44 -16 30 -10 18 2 C24 4 28 8 30 12 C20 10 12 10 6 14 C-4 12 -10 6 -14 2 C-26 -12 -44 -14 -62 -6 Z" fill="currentColor"/></symbol></defs></svg>
+
+<header><div class="bar"><span class="em"><svg width="120" height="120" viewBox="0 0 112 112"><circle cx="56" cy="56" r="54" fill="#113833"/>
+<g fill="none" stroke="#F4F4E8" stroke-opacity=".35" stroke-width="2"><circle cx="56" cy="56" r="40"/><circle cx="56" cy="56" r="26"/><circle cx="56" cy="56" r="12"/></g>
+<path d="M56 56 L56 2 A54 54 0 0 1 102 28Z" fill="#C75B4E" fill-opacity=".6"/><line x1="56" y1="56" x2="102" y2="28" stroke="#C75B4E" stroke-width="3"/>
+<path d="M56 24 L61 40 Q63 43 67 44 L100 50 L66 57 L62 70 L69 84 L56 78 L43 84 L50 70 L46 57 L12 50 L45 44 Q49 43 51 40 Z" fill="#F4F4E8"/></svg></span><b>صقر السماء</b><span class="sp"></span><a class="lang" href="en.html">English</a></div>
+<nav><ul><li><a href="#problem">المشكلة</a></li><li><a href="#doppler">علم دوبلر</a></li><li><a href="#range">معادلة المدى</a></li><li><a href="#layers">الطبقات</a></li><li><a href="#logic">منطق القرار</a></li><li><a href="#device">الجهاز</a></li><li><a href="#compare">المقارنة</a></li><li><a href="#results">النتائج</a></li><li><a href="#log">السجل</a></li><li><a href="#refs">المرجع</a></li></ul></nav></header>
+
+<div class="hero"><div class="em"><svg width="120" height="120" viewBox="0 0 112 112"><circle cx="56" cy="56" r="54" fill="#113833"/>
+<g fill="none" stroke="#F4F4E8" stroke-opacity=".35" stroke-width="2"><circle cx="56" cy="56" r="40"/><circle cx="56" cy="56" r="26"/><circle cx="56" cy="56" r="12"/></g>
+<path d="M56 56 L56 2 A54 54 0 0 1 102 28Z" fill="#C75B4E" fill-opacity=".6"/><line x1="56" y1="56" x2="102" y2="28" stroke="#C75B4E" stroke-width="3"/>
+<path d="M56 24 L61 40 Q63 43 67 44 L100 50 L66 57 L62 70 L69 84 L56 78 L43 84 L50 70 L46 57 L12 50 L45 44 Q49 43 51 40 Z" fill="#F4F4E8"/></svg></div><h1>صقر السماء</h1><p>نظام منخفض التكلفة بأربع طبقات للتمييز بين الطائرات المسيّرة والطيور</p><div><span class="chip">مشروع طالب · قيد التطوير · معرض سيف 2026</span></div></div>
+
+<main class="wrap">
+
+<section id="problem"><div class="kicker">لماذا هذا المشروع</div><h2>المشكلة</h2>
+<p class="lead">أصبحت الطائرات المسيّرة رخيصة وسهلة الصنع، وهذا يجعلها أدوات جذابة للاستخدام الخاطئ. والمشكلة أن أجهزة الكشف التقليدية تراها شبيهة بالطيور، فينتج عن ذلك أحد أمرين: تهديد يمر دون كشف، أو إنذارات كاذبة متكررة تُفقد الثقة بالنظام.</p><p>وحتى على الرادار، تعكس الطيور والمسيّرات الصغيرة إشارات متقاربة القوة، ولهذا لا يكفي مستشعر واحد للتمييز بينهما بثقة. وهنا تحديدًا يبدأ عمل هذا المشروع.</p>
+<figure><div class="fg"><svg width="872" height="491" viewBox="0 0 604 340">
+<g transform="translate(324,0)"><rect width="280" height="340" rx="20" fill="#E4ECE7"/>
+<circle cx="140" cy="140" r="108" fill="#113833"/>
+<g fill="none" stroke="#F4F4E8" stroke-opacity=".25" stroke-width="2"><circle cx="140" cy="140" r="72"/><circle cx="140" cy="140" r="36"/><path d="M32 140H248M140 32V248"/></g>
+<path d="M140 140 L140 32 A108 108 0 0 1 233 86Z" fill="#C75B4E" fill-opacity=".35"/>
+<g fill="#F2C4B8"><circle cx="102" cy="102" r="9"/><circle cx="184" cy="170" r="9"/></g>
+<g fill="none" stroke="#F2C4B8" stroke-opacity=".5" stroke-width="3"><circle cx="102" cy="102" r="17"/><circle cx="184" cy="170" r="17"/></g>
+<g font-size="30" font-weight="bold" fill="#F4F4E8" text-anchor="middle"><text x="102" y="76">?</text><text x="184" y="218">?</text></g>
+<text x="140" y="290" text-anchor="middle" font-size="23" font-weight="bold" fill="#113833">جهاز كشف تقليدي</text>
+<text x="140" y="316" text-anchor="middle" font-size="18" fill="#113833">Ordinary detector</text></g>
+<path d="M316 160 H290 M302 146 L288 160 L302 174" stroke="#C75B4E" stroke-width="7" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
+<g><defs><linearGradient id="skI" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#A9D0DE"/><stop offset="1" stop-color="#E9F2EE"/></linearGradient></defs>
+<rect width="280" height="340" rx="20" fill="url(#skI)"/>
+<use href="#bird" x="30" y="30" width="110" height="48" style="color:#113833"/>
+<rect x="37.0" y="85.0" width="110" height="54" rx="14" fill="#2E8B6B"/><text x="92.0" y="108.0" text-anchor="middle" font-size="19" font-weight="bold" fill="#fff">طائر</text><text x="92.0" y="130.0" text-anchor="middle" font-size="16" fill="#fff">Bird</text>
+<use href="#drone" x="100" y="146" width="172" height="80"/>
+<rect x="130.0" y="225.0" width="120" height="54" rx="14" fill="#C75B4E"/><text x="190.0" y="248.0" text-anchor="middle" font-size="19" font-weight="bold" fill="#fff">مسيّرة</text><text x="190.0" y="270.0" text-anchor="middle" font-size="16" fill="#fff">Drone</text>
+<text x="140" y="306" text-anchor="middle" font-size="23" font-weight="bold" fill="#113833">صقر السماء</text>
+<text x="140" y="330" text-anchor="middle" font-size="18" fill="#113833">Sky Falcon</text></g></svg></div></figure>
+<h3>لماذا لا يكفي مستشعر واحد؟</h3><div class="card"><h3 style="margin-top:0">الكاميرا</h3><p style="margin:0">ترى الشكل والحركة، لكنها تتأثر بالإضاءة والضباب والغبار، وعلى مسافة بعيدة يصبح الجسم بضعة بكسلات فقط.</p></div><div class="card"><h3 style="margin-top:0">الرادار</h3><p style="margin:0">يكشف الحركة حتى في الظلام، لكن المسيّرات الصغيرة تعكس إشارة ضعيفة تشبه انعكاس الطيور.</p></div><div class="card"><h3 style="margin-top:0">الإشارة اللاسلكية</h3><p style="margin:0">مدى بعيد وتكلفة منخفضة، لكنها عمياء تمامًا أمام مسيّرة لا تبث أي إشارة.</p></div><div class="card"><h3 style="margin-top:0">الصوت</h3><p style="margin:0">يعمل دون رؤية، لكن مداه قصير ويتأثر بالرياح وضجيج المحيط.</p></div><p>لكل مستشعر نقطة عمى، ونقطة عمى أحدها ليست نقطة عمى الآخر. وهذا هو الأساس الذي بُني عليه تصميم الطبقات الأربع.</p></section>
+
+<section id="doppler"><div class="kicker">الأساس العلمي</div><h2>علم دوبلر: كيف نفرّق بين مروحة وجناح</h2>
+<p class="lead">عندما ترتد موجة رادار عن جسم متحرك، يتغير ترددها بمقدار يتناسب مع سرعة الجسم. هذا هو تأثير دوبلر، ونفس السبب الذي يجعل صوت سيارة الإسعاف يتغير وهي تمر بجانبك.</p><p>لكن الفكرة الأهم في هذا المشروع ليست سرعة الجسم نفسه، بل حركة أجزائه. فالمسيّرة جسمها يتحرك ببطء بينما مراوحها تدور بسرعة عالية جدًا، وهذا يولّد إشارات إضافية حول الإشارة الأساسية تسمى بصمة دوبلر الدقيقة (Micro-Doppler).</p>
+<div class="formula">f<sub>d</sub> = 2 · v · f<sub>0</sub> / c</div><p class="flegend"><bdi>f<sub>d</sub></bdi> إزاحة التردد · <bdi>v</bdi> سرعة الجزء المتحرك · <bdi>f<sub>0</sub></bdi> تردد الرادار، 10.525 جيجاهرتز · <bdi>c</bdi> سرعة الضوء</p>
+<p>وبتطبيق المعادلة على رادار HB100: كل متر في الثانية من السرعة يعطي إزاحة تردد مقدارها 70 هرتز تقريبًا. فطرف مروحة يدور بسرعة 30 م/ث يعطي نحو 2100 هرتز، بينما جناح طائر يرفرف بسرعة 5 م/ث يعطي نحو 350 هرتز فقط.</p><p>والفرق ليس في الرقم وحده، بل في شكل الإشارة: المروحة تدور باستمرار وبانتظام فتعطي نمطًا متكررًا ثابتًا، أما الجناح فيرفرف ثم يتوقف ثم ينزلق الطائر، فيعطي نمطًا متقطعًا وغير منتظم. جرّب الأداة أدناه.</p>
+<div class="tool"><h4>محاكي بصمة دوبلر</h4><div class="hint">اضغط على الخيارين لترى الفرق في شكل الإشارة وقيمتها.</div>
+<div class="btns"><button class="opt" id="btnDrone" aria-pressed="true">مسيّرة (مروحة تدور)</button><button class="opt" id="btnBird" aria-pressed="false">طائر (جناح يرفرف)</button></div>
+<div id="dopSvg" style="overflow-x:auto;margin-bottom:14px"></div>
+<div class="readout" id="dopOut"></div></div></section>
+
+<section id="range"><div class="kicker">الحدود الفيزيائية</div><h2>معادلة الرادار: لماذا المدى قصير؟</h2>
+<p class="lead">أكبر قيد في هذا المشروع هو مدى الرادار. والسبب ليس ضعف التصميم، بل معادلة فيزيائية لا يمكن تجاوزها: مدى الرادار يتناسب مع الجذر الرابع للقدرة وكسب الهوائي.</p>
+<div class="formula">R &prop; ( P<sub>t</sub> · G² · &sigma; / P<sub>min</sub> )<sup>1/4</sup></div><p class="flegend"><bdi>R</bdi> المدى · <bdi>P<sub>t</sub></bdi> القدرة المرسلة · <bdi>G</bdi> كسب الهوائي · <bdi>&sigma;</bdi> مساحة انعكاس الهدف · <bdi>P<sub>min</sub></bdi> أقل إشارة يمكن استقبالها</p>
+<p>ومعنى الجذر الرابع أن مضاعفة المدى تحتاج زيادة القدرة الفعّالة ستة عشر ضعفًا، لا ضعفين. ولهذا لا تفيد إضافة رادارات إضافية متجاورة: وحداتها غير متزامنة الطور، فلا تتجمع إشاراتها، بل قد تتداخل وتشوّش على بعضها.</p><p>الطريق العملي الوحيد لزيادة المدى هو رفع كسب الهوائي وخفض ضجيج الاستقبال. ولأن كسب الهوائي يدخل في المعادلة مرتين، في الإرسال وفي الاستقبال، فإن أثره على المدى أقوى من أثر تحسين الحساسية. جرّب بنفسك:</p>
+<div class="tool"><h4>حاسبة المدى</h4><div class="hint">حرّك الشريطين لترى أثر تحسين الهوائي والمضخّم على المدى المتوقع. نقطة البداية 7 أمتار لمسيّرة صغيرة.</div>
+<div class="slider"><label><span>زيادة كسب الهوائي</span><b id="gainV">+0 dBi</b></label><input type="range" id="gain" min="0" max="20" value="0" step="1"></div>
+<div class="slider"><label><span>تحسين حساسية الاستقبال</span><b id="lnaV">+0 dB</b></label><input type="range" id="lna" min="0" max="20" value="0" step="1"></div>
+<div style="background:var(--soft);border-radius:999px;height:14px;margin-bottom:14px;overflow:hidden"><div id="rangeBar" style="height:100%;width:12%;background:#C75B4E;border-radius:999px;transition:width .2s"></div></div>
+<div class="readout" id="rangeOut"></div></div>
+<p>لاحظ أن تحسين الهوائي بعشرة ديسيبل يضاعف المدى ثلاث مرات تقريبًا، بينما نفس التحسين في الحساسية يضاعفه أقل من مرتين. ومع ذلك، حتى بأفضل تحسين ممكن يبقى المدى بالأمتار، لا بالكيلومترات، وهذا ما تعترف به صفحة النتائج بوضوح.</p></section>
+
+<section id="layers"><div class="kicker">التصميم</div><h2>الطبقات الأربع</h2>
+<p class="lead">مرتبة من البعيد إلى القريب. كل طبقة لها مهمة واحدة محددة، وتنبّه الطبقة التي بعدها عند رصد جسم. وفصل المهام بهذه الطريقة يقلّل الأخطاء مقارنة بالاعتماد على مستشعر واحد.</p>
+<figure><div class="fg"><svg width="488" height="488" viewBox="0 0 480 480"><defs><linearGradient id="sw" x1="0" y1="1" x2="1" y2="0"><stop offset="0" stop-color="#C75B4E" stop-opacity="0"/><stop offset="1" stop-color="#C75B4E" stop-opacity=".6"/></linearGradient></defs><circle cx="240" cy="240" r="232" fill="#16453F" stroke="#F4F4E8" stroke-opacity=".35" stroke-width="2"/><circle cx="240" cy="240" r="174" fill="#1C544C" stroke="#F4F4E8" stroke-opacity=".35" stroke-width="2"/><circle cx="240" cy="240" r="116" fill="#236359" stroke="#F4F4E8" stroke-opacity=".35" stroke-width="2"/><circle cx="240" cy="240" r="58" fill="#2C736A" stroke="#F4F4E8" stroke-opacity=".35" stroke-width="2"/><path d="M240 240 L300.0 15.9 A232 232 0 0 1 444.8 131.1Z" fill="url(#sw)"/><line x1="240" y1="240" x2="444.8" y2="131.1" stroke="#C75B4E" stroke-width="3"/><use href="#droneW" x="328.4" y="70.7" width="96" height="45"/><path d="M316.4 70.7 V57.7 H329.4" stroke="#C75B4E" stroke-width="4" fill="none"/><path d="M316.4 116.7 V129.7 H329.4" stroke="#C75B4E" stroke-width="4" fill="none"/><path d="M436.4 70.7 V57.7 H423.4" stroke="#C75B4E" stroke-width="4" fill="none"/><path d="M436.4 116.7 V129.7 H423.4" stroke="#C75B4E" stroke-width="4" fill="none"/><rect x="316.4" y="138.7" width="120" height="54" rx="14" fill="#C75B4E"/><text x="376.4" y="161.7" text-anchor="middle" font-size="19" font-weight="bold" fill="#fff">مسيّرة</text><text x="376.4" y="183.7" text-anchor="middle" font-size="16" fill="#fff">Drone</text><use href="#bird" x="89.7" y="300.2" width="80" height="35" style="color:#F4F4E8"/><rect x="77.7" y="335.2" width="104" height="54" rx="14" fill="#2E8B6B"/><text x="129.7" y="358.2" text-anchor="middle" font-size="19" font-weight="bold" fill="#fff">طائر</text><text x="129.7" y="380.2" text-anchor="middle" font-size="16" fill="#fff">Bird</text><circle cx="37" cy="240" r="16" fill="#C75B4E"/><text x="37" y="246" text-anchor="middle" font-size="18" font-weight="bold" fill="#fff">1</text><circle cx="95" cy="240" r="16" fill="#C75B4E"/><text x="95" y="246" text-anchor="middle" font-size="18" font-weight="bold" fill="#fff">2</text><circle cx="153" cy="240" r="16" fill="#C75B4E"/><text x="153" y="246" text-anchor="middle" font-size="18" font-weight="bold" fill="#fff">3</text><circle cx="240" cy="240" r="40" fill="#F4F4E8"/><path d="M220 254V238L240 224L260 238V254Z" fill="#113833"/><rect x="235" y="242" width="10" height="12" fill="#F4F4E8"/><circle cx="200" cy="276" r="16" fill="#C75B4E"/><text x="200" y="282" text-anchor="middle" font-size="18" font-weight="bold" fill="#fff">4</text></svg></div></figure>
+<div class="layer"><div class="num">1</div><div style="flex:1"><h3>كشف الإشارة اللاسلكية</h3><div class="tagl">ESP32</div><p>تستمع هذه الطبقة لإشارات الواي فاي المحيطة دون أن ترسل شيئًا. فأغلب المسيّرات التجارية تتواصل مع جهاز التحكم أو تبث الفيديو عبر الواي فاي، وقوة الإشارة تعطي مؤشرًا تقريبيًا على قرب المسيّرة.</p><div class="lim">الحد: لا تكشف المسيّرات المبرمجة مسبقًا التي لا تبث أي إشارة، ولا المسيّرات التي تستخدم ترددات أو تشفيرًا مختلفًا.</div><span class="rng">من 50 إلى 200 متر</span></div></div><div class="layer"><div class="num">2</div><div style="flex:1"><h3>كاميرا ورادار دوبلر</h3><div class="tagl">Camera + HB100</div><p>تتتبّع الكاميرا الجسم المتحرك بخوارزمية كشف حركة، ويقرأ الرادار بصمة دوبلر الدقيقة الموضحة أعلاه. الكاميرا تجيب على سؤال «أين الجسم؟»، والرادار يجيب على «ما هو؟».</p><div class="lim">الحد: مدى الرادار قصير جدًا لأن المسيّرة الصغيرة تعكس إشارة ضعيفة، وهذا أهم ما يحتاج تطويرًا في المشروع.</div><span class="rng">نحو 50 م للكاميرا، و7 م للرادار</span></div></div><div class="layer"><div class="num">3</div><div style="flex:1"><h3>ميكروفون</h3><div class="tagl">Microphone</div><p>لكل مسيّرة بصمة صوتية مميزة من صوت مراوحها، وترددها يختلف عن أصوات الطيور والرياح. تفيد هذه الطبقة خاصة حين تكون الرؤية ضعيفة، ليلًا أو في الغبار أو خلف حاجز.</p><div class="lim">الحد: يتأثر بضجيج المحيط والرياح، ومداه يقل كثيرًا في الأماكن المزدحمة بالأصوات.</div><span class="rng">من 35 إلى 45 م</span></div></div><div class="layer"><div class="num">4</div><div style="flex:1"><h3>حساس ألتراسونيك</h3><div class="tagl">Arduino + HC-SR04</div><p>يرسل نبضة صوتية فوق سمعية ويقيس زمن ارتدادها لحساب المسافة بدقة عالية عند الاقتراب النهائي، ليؤكد موقع الجسم قبل اتخاذ أي إجراء.</p><div class="lim">الحد: مداه أمتار قليلة فقط، لأن الموجات الصوتية عالية التردد تضعف بسرعة كبيرة في الهواء.</div><span class="rng">حتى 4 م</span></div></div><div class="dec">يجمع Raspberry Pi 5 قراءات الطبقات ويتخذ القرار: مسيّرة أم طائر أم غير متأكد.</div></section>
+
+<section id="logic"><div class="kicker">كيف يتخذ النظام قراره</div><h2>منطق القرار</h2>
+<p class="lead">لا يعتمد النظام على طبقة واحدة. القاعدة الأساسية أن الجسم لا يُصنّف إلا إذا اتفقت طبقتان على الأقل. وهذه القاعدة تحديدًا هي ما يقلّل الإنذارات الكاذبة: خطأ مستشعر واحد لا يكفي لإطلاق إنذار.</p><p>وإن اختلفت الطبقات، لا يخمّن النظام. يعطي نتيجة «غير متأكد»، وهي نتيجة صحيحة ومفيدة، لأنها تطلب تحققًا بشريًا بدل أن تعطي ثقة زائفة.</p>
+<div class="tool"><h4>محاكي القرار</h4><div class="hint">اختر ما رصدته كل طبقة، وشاهد كيف يتخذ النظام قراره.</div>
+<div style="margin-bottom:14px"><div style="font-size:15px;font-weight:bold;margin-bottom:6px">الإشارة اللاسلكية</div><div class="btns"><button class="opt" data-k="rf" data-v="drone">مسيّرة</button><button class="opt" data-k="rf" data-v="bird">طائر</button><button class="opt" data-k="rf" data-v="none">لا شيء</button></div></div>
+<div style="margin-bottom:14px"><div style="font-size:15px;font-weight:bold;margin-bottom:6px">الرادار</div><div class="btns"><button class="opt" data-k="rad" data-v="drone">مسيّرة</button><button class="opt" data-k="rad" data-v="bird">طائر</button><button class="opt" data-k="rad" data-v="none">لا شيء</button></div></div>
+<div style="margin-bottom:18px"><div style="font-size:15px;font-weight:bold;margin-bottom:6px">الميكروفون</div><div class="btns"><button class="opt" data-k="mic" data-v="drone">مسيّرة</button><button class="opt" data-k="mic" data-v="bird">طائر</button><button class="opt" data-k="mic" data-v="none">لا شيء</button></div></div>
+<div class="verdict v-unsure" id="verdict"></div></div></section>
+
+<section id="device"><div class="kicker">البناء</div><h2>الجهاز وقائمة القطع</h2>
+<p class="lead">تتكامل الطبقات الأربع في وحدة واحدة على حامل ثلاثي. الصورة أدناه تصوّر مبدئي للتصميم، ولم يُصنع الجهاز بعد.</p>
+<figure><div class="fg"><svg width="940" height="409" viewBox="0 0 759 330"><defs><linearGradient id="skD" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#B8D8E3"/><stop offset="1" stop-color="#EEF3EE"/></linearGradient></defs>
+<rect width="759" height="330" rx="18" fill="url(#skD)"/>
+<ellipse cx="380" cy="316" rx="100" ry="8" fill="#113833" opacity=".15"/>
+<g stroke="#113833" stroke-width="6" stroke-linecap="round"><path d="M380 246 L316 312 M380 246 L444 312 M380 246 L380 318"/></g>
+<rect x="374" y="130" width="12" height="120" fill="#6d7772"/>
+<path d="M374 172 H302" stroke="#6d7772" stroke-width="6"/><circle cx="286" cy="172" r="20" fill="#113833"/><g fill="#F4F4E8"><circle cx="286" cy="162" r="3.5"/><circle cx="296" cy="172" r="3.5"/><circle cx="286" cy="182" r="3.5"/><circle cx="276" cy="172" r="3.5"/></g>
+<path d="M386 156 H440" stroke="#6d7772" stroke-width="6"/><rect x="440" y="142" width="58" height="28" rx="4" fill="#2E8B6B"/><g fill="#F4F4E8" stroke="#113833" stroke-width="2"><circle cx="455" cy="156" r="9"/><circle cx="483" cy="156" r="9"/></g>
+<rect x="343" y="192" width="74" height="52" rx="6" fill="#113833"/><g stroke="#F4F4E8" stroke-opacity=".5" stroke-width="2"><path d="M353 204H375M353 212H375M353 220H375"/></g><circle cx="404" cy="206" r="4" fill="#C75B4E"/><text x="380" y="238" text-anchor="middle" font-size="12" font-weight="bold" fill="#F4F4E8">Pi 5</text>
+<rect x="366" y="122" width="28" height="12" rx="3" fill="#6d7772"/>
+<rect x="300" y="60" width="160" height="64" rx="14" fill="#113833"/>
+<circle cx="340" cy="92" r="20" fill="#0b2622" stroke="#F4F4E8" stroke-width="3"/><circle cx="340" cy="92" r="9" fill="#9CC7D6"/><circle cx="336" cy="88" r="3" fill="#fff"/>
+<rect x="378" y="70" width="70" height="44" rx="4" fill="#F4F4E8"/><g fill="#C75B4E"><rect x="386" y="77" width="12" height="12"/><rect x="404" y="77" width="12" height="12"/><rect x="386" y="95" width="12" height="12"/><rect x="404" y="95" width="12" height="12"/></g><rect x="424" y="77" width="16" height="30" rx="2" fill="#6d7772"/>
+<path d="M318 60 V22" stroke="#113833" stroke-width="4" stroke-linecap="round"/><circle cx="318" cy="20" r="5" fill="#C75B4E"/>
+<g fill="none" stroke="#C75B4E" stroke-width="3" stroke-linecap="round"><path d="M306 12a16 16 0 0 0 0 16M330 12a16 16 0 0 1 0 16"/><path d="M298 6a26 26 0 0 0 0 28M338 6a26 26 0 0 1 0 28" opacity=".6"/></g>
+<path d="M244 34 L316 42" stroke="#C75B4E" stroke-width="2.5"/><circle cx="316" cy="42" r="5" fill="#C75B4E"/><text x="236" y="34" text-anchor="end" font-size="21" font-weight="bold" fill="#113833">هوائي لاسلكي</text><text x="236" y="55" text-anchor="end" font-size="16" fill="#113833">RF antenna, ESP32</text>
+<path d="M244 96 L322 92" stroke="#C75B4E" stroke-width="2.5"/><circle cx="322" cy="92" r="5" fill="#C75B4E"/><text x="236" y="96" text-anchor="end" font-size="21" font-weight="bold" fill="#113833">كاميرا</text><text x="236" y="117" text-anchor="end" font-size="16" fill="#113833">Camera</text>
+<path d="M244 168 L266 172" stroke="#C75B4E" stroke-width="2.5"/><circle cx="266" cy="172" r="5" fill="#C75B4E"/><text x="236" y="166" text-anchor="end" font-size="21" font-weight="bold" fill="#113833">ميكروفونات</text><text x="236" y="187" text-anchor="end" font-size="16" fill="#113833">Microphone array</text>
+<path d="M244 226 L343 218" stroke="#C75B4E" stroke-width="2.5"/><circle cx="343" cy="218" r="5" fill="#C75B4E"/><text x="236" y="228" text-anchor="end" font-size="21" font-weight="bold" fill="#113833">وحدة التحكم</text><text x="236" y="249" text-anchor="end" font-size="16" fill="#113833">Pi 5 + Arduino</text>
+<path d="M520 84 L448 88" stroke="#C75B4E" stroke-width="2.5"/><circle cx="448" cy="88" r="5" fill="#C75B4E"/><text x="528" y="80" font-size="21" font-weight="bold" fill="#113833">رادار دوبلر</text><text x="528" y="101" font-size="16" fill="#113833">Doppler radar, HB100</text>
+<path d="M520 156 L498 156" stroke="#C75B4E" stroke-width="2.5"/><circle cx="498" cy="156" r="5" fill="#C75B4E"/><text x="528" y="152" font-size="21" font-weight="bold" fill="#113833">حساس ألتراسونيك</text><text x="528" y="173" font-size="16" fill="#113833">Ultrasonic sensor</text>
+<text x="632" y="272" text-anchor="middle" font-size="18" font-style="italic" font-weight="bold" fill="#C75B4E">تصوّر مبدئي، لم يُصنع بعد</text>
+<text x="632" y="296" text-anchor="middle" font-size="16" font-style="italic" fill="#C75B4E">Concept design, not built yet</text></svg></div></figure>
+<h3>قائمة القطع</h3>
+<div class="tw"><table><thead><tr><th>القطعة</th><th>الدور</th><th>التكلفة التقريبية</th></tr></thead><tbody><tr><td>Raspberry Pi 5</td><td>المعالج المركزي ومنطق القرار</td><td>300–450 ريال</td></tr><tr><td>مزود طاقة رسمي 27W</td><td>تشغيل مستقر للوحة</td><td>40–50</td></tr><tr><td>كرت ذاكرة 64GB</td><td>نظام التشغيل</td><td>30–40</td></tr><tr><td>مبرد نشط وحافظة</td><td>منع ارتفاع الحرارة أثناء معالجة الفيديو</td><td>40–60</td></tr><tr><td>Camera Module 3</td><td>كشف الأجسام وتتبعها</td><td>220</td></tr><tr><td>رادار HB100</td><td>قراءة بصمة دوبلر</td><td>20–35</td></tr><tr><td>كرت صوت USB</td><td>إدخال إشارة الرادار للوحة</td><td>15–25</td></tr><tr><td>مضخّم إشارة (op-amp)</td><td>تقوية إشارة الرادار الضعيفة</td><td>30–50</td></tr><tr><td>ESP32</td><td>طبقة الإنذار المبكر</td><td>15–25</td></tr><tr><td>Arduino + HC-SR04</td><td>طبقة قياس المسافة</td><td>40–75</td></tr><tr><td>ميكروفون USB</td><td>الطبقة الصوتية</td><td>20–50</td></tr></tbody></table></div>
+<p class="note">الإجمالي التقريبي: من 770 إلى 1080 ريال. الأسعار تقديرية وتتغير حسب المتجر.</p></section>
+
+<section id="compare"><div class="kicker">أين يقف المشروع</div><h2>مقارنة بالأنظمة التجارية</h2>
+<p class="lead">الفكرة الأساسية للمشروع، وهي دمج عدة مستشعرات للتمييز بين المسيّرات والطيور، مستخدمة فعلًا في أنظمة تجارية عالمية. هذا الجدول يوضح الفرق بصراحة.</p>
+<div class="tw"><table><thead><tr><th>النظام</th><th>المستشعرات</th><th>المدى</th><th>التكلفة</th></tr></thead><tbody><tr><td>Robin Radar IRIS</td><td>رادار بتقنية micro-Doppler</td><td>نحو 5 كم للكشف، و2 كم لتحديد النوع</td><td>أقل من مليون دولار</td></tr><tr><td>Dedrone</td><td>إشارة لاسلكية، رادار، فيديو، صوت</td><td>5 كم لاسلكي، 3 كم رادار، 1 كم كاميرا</td><td>عشرات إلى مئات الآلاف</td></tr><tr><td>DroneShield</td><td>إشارة لاسلكية، رادار، صوت، كاميرا</td><td>كيلومترات</td><td>عشرات إلى مئات الآلاف</td></tr><tr class=me><td>صقر السماء</td><td>إشارة لاسلكية، رادار، كاميرا، صوت، ألتراسونيك</td><td>مئات الأمتار للطبقة الأولى، وأمتار للرادار</td><td>أقل من 1100 ريال</td></tr></tbody></table></div>
+<p>الخلاصة الصادقة: الفكرة ليست جديدة، والفرق في المدى هائل. لكن ما يميّز هذا المشروع هو تحقيق المنطق نفسه بجزء من واحد في الألف من التكلفة، مع تصميم معياري يسمح بترقية أي طبقة لاحقًا دون إعادة بناء النظام.</p></section>
+
+<section id="results"><div class="kicker">ما لم يُقس بعد</div><h2>النتائج المتوقعة</h2>
+<p class="lead">لم تبدأ اختبارات الأجهزة بعد، ولهذا لا توجد نتائج فعلية لهذا النظام. القيم أدناه مأخوذة من دراسات منشورة ونشرات بيانات لمستشعرات مشابهة، وتوضح ما يُتوقع من هذا التصميم.</p><div class="res"><strong>التمييز بين المسيّرة والطائر</strong><b>96%</b><span>في دراسة استخدمت رادار دوبلر على نطاق 10 جيجاهرتز، وهو نفس نطاق الرادار المستخدم هنا [1]</span></div><div class="res"><strong>الكاميرا وحدها</strong><b>90%</b><span>أداء نموذج تعلّم عميق يعتمد على الكاميرا في التمييز بين المسيّرات والطيور [2]</span></div><div class="res"><strong>أثر دمج المستشعرات</strong><b>78% مقابل 67%</b><span>نسبة اكتشاف المسيّرة بعد الدمج مقارنة بالكاميرا وحدها، وفي الاختبار نفسه منع اشتراط اتفاق مستشعرين كل الإنذارات الكاذبة الفردية [3]</span></div><p class="note">هذه نتائج أجهزة أخرى في ظروف أخرى، وقد تختلف نتائج هذا الجهاز عند بنائه. وستُحدَّث هذه الصفحة بالأرقام الفعلية فور توفرها.</p>
+<h3>خطة القياس</h3><ul class="plain"><li>قياس مدى الرادار قبل تركيب الهوائي العاكس وبعده، بعشر محاولات لكل مسافة.</li><li>حساب معدل الإنذارات الكاذبة للكاميرا وحدها، ثم للكاميرا مع الرادار، خلال فترة تشغيل متصلة.</li><li>قياس زمن اتخاذ القرار من لحظة الرصد حتى صدور التصنيف.</li><li>تكرار الاختبارات في ظروف إضاءة مختلفة.</li></ul></section>
+
+<section id="log"><div class="kicker">القرارات والمسار</div><h2>سجل التطوير</h2>
+<p class="lead">يوثّق هذا السجل القرارات الهندسية للمشروع، بما فيها البدائل التي دُرست ورُفضت، لأن سبب رفض خيار لا يقل أهمية عن سبب اختيار آخر.</p><div class="log"><div class="e"><div class="d">القرار الأول</div><h4>لماذا الدمج بدل مستشعر واحد</h4><p>دراسة حدود كل مستشعر منفردًا أظهرت أن لكل واحد نقطة عمى مختلفة، فاعتُمد تصميم متعدد الطبقات.</p></div><div class="e"><div class="d">بديل مرفوض</div><h4>زيادة عدد وحدات الرادار</h4><p>دُرس وضع عدة وحدات HB100 معًا لزيادة المدى، ورُفض: الوحدات غير متزامنة الطور فلا تتجمع إشاراتها، وقد تتداخل وتشوّش على بعضها. التغطية تزيد، أما المدى فلا.</p></div><div class="e"><div class="d">بديل مرفوض</div><h4>استخدام الألتراسونيك كطبقة بعيدة المدى</h4><p>رُفض لأن الموجات فوق الصوتية تضعف بسرعة كبيرة في الهواء، فمداها أمتار قليلة ولا تصلح للإنذار المبكر. وأُبقي عليها كطبقة تأكيد قريبة.</p></div><div class="e"><div class="d">بديل مرفوض</div><h4>رادار تقليدي بعيد المدى للطبقة الأولى</h4><p>هو الخيار المثالي نظريًا، لكن تحديد الاتجاه يحتاج هوائيًا دوّارًا أو مصفوفة متزامنة، وتكلفته خارج نطاق المشروع تمامًا. فاختير الكشف اللاسلكي لأنه يعطي مدى قريبًا منه بجزء بسيط من التكلفة.</p></div><div class="e"><div class="d">القرار الحالي</div><h4>منطق اتفاق طبقتين</h4><p>اعتُمدت قاعدة ألا يُصنّف الجسم إلا باتفاق طبقتين على الأقل، لتقليل الإنذارات الكاذبة، مع إخراج نتيجة «غير متأكد» عند الاختلاف.</p></div><div class="e todo"><div class="d">الخطوة التالية</div><h4>بناء النظام الأساسي</h4><p>تشغيل الكاميرا مع كشف الحركة، ثم إضافة الرادار ودائرة التضخيم.</p></div><div class="e todo"><div class="d">لاحقًا</div><h4>القياس الفعلي</h4><p>تنفيذ خطة القياس المذكورة أعلاه وتحديث صفحة النتائج بالأرقام الحقيقية.</p></div></div></section>
+
+<section><div class="kicker">ما بعد النموذج الأول</div><h2>المرحلة القادمة</h2>
+<p class="lead">الخطوة التالية بعد بناء النظام واختباره هي درون تحقق يحمل الكاميرا والرادار. فبدل انتظار اقتراب الجسم من الرادار قصير المدى، يتوجه الدرون إليه ليتحقق منه عن قرب. وهذا يحوّل قيد المدى من مشكلة ثابتة إلى مسألة حركة.</p>
+<figure><div class="fg"><svg width="872" height="330" viewBox="0 0 872 330"><rect width="872" height="330" rx="20" fill="#1C4A43"/>
+<g fill="none" stroke="#F4F4E8" stroke-opacity=".08" stroke-width="2"><circle cx="110" cy="330" r="120"/><circle cx="110" cy="330" r="220"/><circle cx="110" cy="330" r="320"/></g>
+<rect x="0" y="290" width="872" height="40" fill="#123833"/>
+<g stroke="#F4F4E8" stroke-width="5" stroke-linecap="round"><path d="M110 250 L84 292 M110 250 L136 292 M110 250 V294"/></g>
+<rect x="104" y="196" width="12" height="56" fill="#9aa6a1"/><rect x="78" y="176" width="64" height="30" rx="8" fill="#F4F4E8"/><circle cx="98" cy="191" r="7" fill="#113833"/><rect x="112" y="184" width="22" height="14" fill="#C75B4E"/>
+<path d="M150 190 C260 150 330 120 400 118" stroke="#F4F4E8" stroke-width="3" stroke-dasharray="10 9" fill="none"/>
+<use href="#droneW" x="400" y="70" width="190" height="89"/>
+<rect x="467" y="150" width="56" height="30" rx="6" fill="#F4F4E8"/><circle cx="483" cy="165" r="8" fill="#113833"/><circle cx="483" cy="165" r="3.5" fill="#9CC7D6"/><g fill="#C75B4E"><rect x="496" y="156" width="8" height="8"/><rect x="508" y="156" width="8" height="8"/><rect x="496" y="167" width="8" height="8"/><rect x="508" y="167" width="8" height="8"/></g>
+<path d="M600 120 L700 90" stroke="#C75B4E" stroke-width="3" stroke-dasharray="8 7"/>
+<use href="#droneW" x="700" y="48" width="120" height="56" opacity=".85"/>
+<g stroke="#C75B4E" stroke-width="4" fill="none"><path d="M694 44 v-12 h14 M826 44 v-12 h-14 M694 108 v12 h14 M826 108 v12 h-14"/></g>
+<circle cx="840" cy="30" r="20" fill="#C75B4E"/><text x="840" y="39" text-anchor="middle" font-size="26" font-weight="bold" fill="#fff">?</text>
+<text x="110" y="160" text-anchor="middle" font-size="18" font-weight="bold" fill="#F4F4E8">المحطة الأرضية</text><text x="110" y="140" text-anchor="middle" font-size="14" fill="#F4F4E8" opacity=".85">Ground station</text>
+<text x="495" y="215" text-anchor="middle" font-size="19" font-weight="bold" fill="#F4F4E8">درون التحقق</text><text x="495" y="237" text-anchor="middle" font-size="15" fill="#F4F4E8" opacity=".85">Verification drone</text>
+<text x="760" y="150" text-anchor="middle" font-size="19" font-weight="bold" fill="#F4F4E8">جسم مشبوه</text><text x="760" y="172" text-anchor="middle" font-size="15" fill="#F4F4E8" opacity=".85">Unknown target</text></svg></div></figure>
+<p>الفكرة اقترحها أخي، وتواجه تحديًا أساسيًا لا بد من معالجته: مراوح الدرون الحامل نفسها تولّد بصمة دوبلر قوية تشوّش على قراءة الرادار. ومن الحلول المطروحة أن يثبت الدرون في الهواء ويوقف مناورته لحظة القياس.</p><ul class="steps"><li>بناء الطبقات الأربع واختبارها معًا</li><li>قياس الدقة ومعدل الإنذارات الكاذبة بأرقام فعلية</li><li>زيادة مدى الرادار عبر هوائي عاكس ومضخّم منخفض الضجيج</li><li>دراسة رادار FMCW لقياس المسافة بدقة</li><li>درون تحقق يحمل الكاميرا والرادار</li></ul></section>
+
+<section id="refs" style="border:none"><h2>المراجع</h2><ol class="refs"><li>Narayanan, R. M., Tsang, B., &amp; Bharadwaj, R. (2023). Classification and Discrimination of Birds and Small Drones Using Radar Micro-Doppler Spectrogram Images. <i>Signals</i>, 4, 337–358.</li><li>Aker, C., &amp; Kalkan, S. (2017). Using Deep Networks for Drone Detection. <i>Proc. 14th IEEE AVSS</i>, Lecce, Italy, pp. 1–6. doi:10.1109/AVSS.2017.8078539</li><li>Svanström, F., Alonso-Fernandez, F., &amp; Englund, C. (2022). Drone Detection and Tracking in Real-Time by Fusion of Different Sensing Modalities. arXiv:2207.01927.</li><li>AgilSense. <i>HB100 Microwave Sensor Module Datasheet</i>.</li><li>PX4 Autopilot Documentation. <i>ESP32 WiFi Module</i>.</li><li>ElecFreaks. <i>Ultrasonic Ranging Module HC-SR04 Datasheet</i>.</li></ol>
+<p class="note" style="margin-top:18px">شكر لأخي على فكرة درون التحقق.</p></section>
+
+</main>
+<footer>صقر السماء · مشروع طالب لمعرض سيف 2026</footer>
+<script>
+(function(){
+var T = {"time": "الزمن ←", "m": "متر", "dopDrone": "إزاحة التردد لطرف مروحة يدور بسرعة {v} م/ث. لاحظ النمط المتكرر المنتظم.", "dopBird": "إزاحة التردد لجناح يرفرف بسرعة {v} م/ث. لاحظ النمط الأبطأ وغير المنتظم.", "rangeNote": "المدى المتوقع، أي {x} ضعف نقطة البداية.", "vNeed": "اختر قراءة لطبقتين على الأقل", "vDrone": "القرار: مسيّرة", "vDroneWhy": "اتفقت {n} طبقات على أن الجسم مسيّرة.", "vBird": "القرار: طائر", "vBirdWhy": "اتفقت {n} طبقات على أن الجسم طائر.", "vUnsure": "القرار: غير متأكد", "vUnsureWhy": "الطبقات لم تتفق، فالنظام لا يخمّن ويطلب تحققًا بشريًا."};
+function $(s){return document.querySelector(s);}
+
+/* ---------- 1. Doppler simulator ---------- */
+var F0=10.525e9, C=3e8;
+var dopMode='drone';
+function fd(v){return 2*v*F0/C;}
+function drawDop(){
+  var isD = dopMode==='drone';
+  var v = isD ? 30 : 5;
+  var f = fd(v);
+  var w = 640, h = 190, mid = h/2, svg='';
+  svg += '<rect width="'+w+'" height="'+h+'" rx="12" fill="#E4ECE7"/>';
+  svg += '<path d="M40 '+mid+' H'+(w-20)+'" stroke="#113833" stroke-width="2" opacity=".4"/>';
+  svg += '<path d="M40 20 V'+(h-20)+'" stroke="#113833" stroke-width="2" opacity=".4"/>';
+  if(isD){
+    var d='', n=26;
+    for(var i=0;i<n;i++){
+      var x = 50 + i*((w-80)/n);
+      d += 'M'+x.toFixed(1)+' '+(mid-58)+' V'+(mid+58)+' ';
+    }
+    svg += '<path d="'+d+'" stroke="#C75B4E" stroke-width="4" stroke-linecap="round"/>';
+  } else {
+    var p='M50 '+mid, x2=50;
+    var seq=[[3,34],[0,0],[2,44],[0,0],[4,28],[0,0]];
+    for(var k=0;k<seq.length;k++){
+      var beats=seq[k][0], amp=seq[k][1];
+      if(beats===0){ x2+=52; p += ' L'+x2+' '+mid; continue; }
+      for(var j=0;j<beats;j++){
+        p += ' C'+(x2+9)+' '+(mid-amp)+','+(x2+21)+' '+(mid+amp)+','+(x2+30)+' '+mid;
+        x2+=30;
+      }
+    }
+    svg += '<path d="'+p+'" stroke="#2E8B6B" stroke-width="5" fill="none" stroke-linecap="round"/>';
+  }
+  svg += '<text x="'+(w/2)+'" y="'+(h-4)+'" text-anchor="middle" font-size="13" fill="#113833" opacity=".8">'+T.time+'</text>';
+  $('#dopSvg').innerHTML = '<svg viewBox="0 0 '+w+' '+h+'" width="'+w+'" height="'+h+'">'+svg+'</svg>';
+  $('#dopOut').innerHTML = '<b>'+Math.round(f)+' Hz</b>' + (isD?T.dopDrone:T.dopBird).replace('{v}',v);
+  $('#btnDrone').setAttribute('aria-pressed', isD?'true':'false');
+  $('#btnBird').setAttribute('aria-pressed', isD?'false':'true');
+}
+
+/* ---------- 2. Range calculator ---------- */
+var BASE=7;
+function drawRange(){
+  var g = +$('#gain').value, l = +$('#lna').value;
+  var r = BASE * Math.pow(10,(2*g + l)/40);
+  $('#gainV').textContent = '+'+g+' dBi';
+  $('#lnaV').textContent = '+'+l+' dB';
+  $('#rangeOut').innerHTML = '<b>'+r.toFixed(1)+' '+T.m+'</b>'+T.rangeNote.replace('{x}',(r/BASE).toFixed(1));
+  var pct = Math.min(100, r/60*100);
+  $('#rangeBar').style.width = pct+'%';
+}
+
+/* ---------- 3. Fusion decision simulator ---------- */
+var S={rf:null,rad:null,mic:null};
+function setL(k,v,btnOn,btnOff){
+  S[k]=v;
+  document.querySelectorAll('[data-k="'+k+'"]').forEach(function(b){
+    b.setAttribute('aria-pressed', b.dataset.v===v ? 'true':'false');
+  });
+  decide();
+}
+function decide(){
+  var votes=[S.rf,S.rad,S.mic].filter(function(x){return x!==null;});
+  var d=votes.filter(function(x){return x==='drone';}).length;
+  var b=votes.filter(function(x){return x==='bird';}).length;
+  var el=$('#verdict');
+  if(votes.length<2){ el.className='verdict v-unsure'; el.innerHTML=T.vNeed; return; }
+  if(d>=2){ el.className='verdict v-drone'; el.innerHTML=T.vDrone+'<span class="vex">'+T.vDroneWhy.replace('{n}',d)+'</span>'; }
+  else if(b>=2){ el.className='verdict v-bird'; el.innerHTML=T.vBird+'<span class="vex">'+T.vBirdWhy.replace('{n}',b)+'</span>'; }
+  else { el.className='verdict v-unsure'; el.innerHTML=T.vUnsure+'<span class="vex">'+T.vUnsureWhy+'</span>'; }
+}
+
+/* ---------- wire up ---------- */
+function init(){
+  if($('#dopSvg')){
+    $('#btnDrone').addEventListener('click',function(){dopMode='drone';drawDop();});
+    $('#btnBird').addEventListener('click',function(){dopMode='bird';drawDop();});
+    drawDop();
+  }
+  if($('#gain')){
+    $('#gain').addEventListener('input',drawRange);
+    $('#lna').addEventListener('input',drawRange);
+    drawRange();
+  }
+  if($('#verdict')){
+    document.querySelectorAll('[data-k]').forEach(function(btn){
+      btn.addEventListener('click',function(){ setL(btn.dataset.k, btn.dataset.v); });
+    });
+    decide();
+  }
+}
+if(document.readyState!=='loading'){init();} else {document.addEventListener('DOMContentLoaded',init);}
+})();
+</script>
+</body></html>
